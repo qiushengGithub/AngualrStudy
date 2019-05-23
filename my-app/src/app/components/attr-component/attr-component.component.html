@@ -1,0 +1,15 @@
+<div class="border">
+  <p>Greet Component</p>
+  <div style="border: 1px solid red;margin: 5px;">
+    <ng-content select="header"></ng-content>
+  </div>
+  <div style="border: 1px solid green;margin: 5px;">
+    <ng-content select=".card_body"></ng-content>
+  </div>
+  <div style="border: 1px solid blue;margin: 5px;">
+    <ng-content select="footer"></ng-content>
+  </div>
+  <ng-container pContainer></ng-container>
+  <ng-container pContainer></ng-container>
+  <ng-container pContainer></ng-container>
+</div>
