@@ -3,13 +3,17 @@ import { NgModule } from '@angular/core';
 import {PortalModule} from '@angular/cdk/portal';
 
 import { AppComponent } from './app.component';
-import { CdkPortalOverviewExample, ComponentPortalExample } from './cdk-portal-overview-example/cdk-portal-overview-example.component';
+import {
+  CdkPortalOverviewExample, ComponentPortalExample, DialogComponentWithSharingData, PortalOutsideComponent,
+} from './cdk-portal-overview-example/cdk-portal-overview-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CdkPortalOverviewExample,
-    ComponentPortalExample
+    ComponentPortalExample,
+    PortalOutsideComponent,
+    DialogComponentWithSharingData
   ],
   imports: [
     BrowserModule,
@@ -17,6 +21,6 @@ import { CdkPortalOverviewExample, ComponentPortalExample } from './cdk-portal-o
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[ComponentPortalExample]
+  entryComponents:[ComponentPortalExample,PortalOutsideComponent,DialogComponentWithSharingData]
 })
 export class AppModule { }
