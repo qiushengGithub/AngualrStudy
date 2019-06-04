@@ -3,7 +3,15 @@
   <h2>组件或者ng-template实现overlay</h2>
   <!-- 全局显示 页面中心显示 -->
   <button (click)="showOverlayGlobalPanelCenter()">页面中心显示</button>
-
+  <button style="margin-left: 10px" (mouseenter)="showOverlayGlobalPanelCenter()"
+                 (mouseleave)="dismissOverlayPanelTemplate()">
+  显示 ng-template 内容
+</button>
+  <button style="margin-left: 10px" (click)="showOverlayPanelConnectComponent()"
+          #origin >
+    origin显示
+  </button>
+  <button style="margin-left: 10px" (click)="showOverlayGlobalPanelPosition()">页面中显示，自己控制位置</button>
   <!-- ng-template overlay 将要显示的内容 -->
   <ng-template  #overlayGlobalTemplate>
     <p class="template-overlay-pane"> ng-temtortelliniTemplateplate显示 </p>
