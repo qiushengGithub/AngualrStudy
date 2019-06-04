@@ -5,7 +5,7 @@ import {
 import {
   CdkPortalOutletAttachedRef, ComponentPortal, DomPortalOutlet, Portal, PortalInjector, TemplatePortal,
 } from '@angular/cdk/portal';
-import { DOCUMENT } from "@angular/common";
+import { DOCUMENT } from '@angular/common';
 
 /**
  * @title Portal overview

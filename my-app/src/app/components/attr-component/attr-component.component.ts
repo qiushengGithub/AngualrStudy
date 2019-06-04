@@ -35,6 +35,7 @@ export class PrimeTemplate2 {
 export class PrimeContainer {
 
   @Input() type: string;
+
   constructor(public containerRef: ViewContainerRef) {
     console.log(containerRef);
   }
@@ -46,14 +47,16 @@ export class PrimeContainer {
   templateUrl: './attr-component.component.html',
   styleUrls: ['./attr-component.component.scss']
 })
-export class AttrComponentComponent implements OnInit , AfterContentInit ,AfterContentChecked, AfterViewInit {
-  @ContentChildren('header') header : QueryList<ElementRef>;
+export class AttrComponentComponent implements OnInit, AfterContentInit, AfterContentChecked, AfterViewInit {
+  @Input() myTmp: TemplateRef<void>;
+  @ContentChildren('header') header: QueryList<ElementRef>;
   @ContentChildren(PrimeTemplate2, {read: TemplateRef}) childCmp: QueryList<TemplateRef<any>>;
   @ViewChildren(PrimeContainer, {read: ViewContainerRef}) viewCmp: QueryList<ViewContainerRef>;
   text1 = 555;
   text2 = 666;
   text3 = 777;
-  constructor(  private cdr: ChangeDetectorRef,) {
+
+  constructor(private cdr: ChangeDetectorRef,) {
   }
 
   ngOnInit() {
@@ -62,6 +65,7 @@ export class AttrComponentComponent implements OnInit , AfterContentInit ,AfterC
   ngAfterContentInit(): void {
     console.log(this.viewCmp);
   }
+
   ngAfterContentChecked(): void {
     //console.log(this.viewCmp);
   }
@@ -69,7 +73,14 @@ export class AttrComponentComponent implements OnInit , AfterContentInit ,AfterC
   ngAfterViewInit(): void {
     console.log(this.viewCmp);
     this.viewCmp.forEach((item, index) => {
-      let tmpView =  this.childCmp.toArray()[index].createEmbeddedView(null);
+      let context = {
+        $implicit: {
+          name: 'qiusheng'
+        },
+        localSk: 'Svet',
+        name: 'qisuheng222'
+      };
+      let tmpView = this.childCmp.toArray()[index].createEmbeddedView(context);
       item.insert(tmpView);
     });
   }

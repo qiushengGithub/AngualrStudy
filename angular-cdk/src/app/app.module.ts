@@ -5,8 +5,9 @@ import {PortalModule} from '@angular/cdk/portal';
 import { AppComponent } from './app.component';
 import {
   CdkPortalOverviewExample, ComponentPortalExample, DialogComponentWithSharingData, PortalOutsideComponent,
-} from './cdk-portal-overview-example/cdk-portal-overview-example.component';
-import { NzMessageModule } from './components/message';
+} from './portal/cdk-portal-overview-example.component';
+import {MyOverlayModule} from './overlay/myOverlay.module';
+import {NZ_MESSAGE_CONFIG, NzMessageModule} from './components/message';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,10 +32,14 @@ registerLocaleData(en);
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PortalModule,
+    MyOverlayModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US },
+    {provide: NZ_MESSAGE_CONFIG, useValue: {nzDuration: 300000}}
+  ],
   bootstrap: [AppComponent],
-  entryComponents:[ComponentPortalExample,PortalOutsideComponent,DialogComponentWithSharingData]
+  entryComponents: [ComponentPortalExample, PortalOutsideComponent, DialogComponentWithSharingData]
 })
 export class AppModule { }

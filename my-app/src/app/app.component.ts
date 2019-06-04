@@ -23,4 +23,8 @@ export class AppComponent implements OnInit {
   changeCount() {
     ++this.count;
   }
+  show() {
+    console.log(this.count);
+    console.log(1111);
+  }
 }

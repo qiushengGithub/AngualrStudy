@@ -6,10 +6,10 @@ import { NzMessageService } from './components/message';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit{
-  constructor(private message:NzMessageService){};
+export class AppComponent implements AfterViewInit {
+  constructor() {};
   ngAfterViewInit(): void {
-    this.message.success('qiusheng');
+    //this.message.success('qiusheng');
   }
 
 }

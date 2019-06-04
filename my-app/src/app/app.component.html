@@ -1,11 +1,12 @@
-<!--
+
 这是学习投影 <br>
-<button app-attr-component>
+<button app-attr-component  [myTmp]="testTpl">
   <header #header>{{myValue}}</header>
-  <div class="card_body">Card Body</div>
+  <div class="card_body" (click)="show()">Card Body</div>
   <footer>Card Footer</footer>
-  <ng-template pTemplate2="tmp1">
+  <ng-template pTemplate2="tmp1" let-name="name">
     <span>{{text1}}</span>
+    {{name}}
   </ng-template >
   <ng-template pTemplate2="tmp2">
    <span>{{text2}}</span>
@@ -14,8 +15,11 @@
     <span>{{text3}}</span>
   </ng-template>
 
-</button>-->
+</button>
 <br>
+
+这是学习 ngTemplateOutlet指令<br>
+<ng-template #testTpl>{{text1}}<div style="width: 20px;height: 20px;background-color: red;border-radius: 50%;display: inline-block"></div></ng-template>
 
 这是学习 onPush <br>
 <button (click)="changeCount()">增加count</button> <br>
