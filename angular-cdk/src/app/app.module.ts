@@ -37,7 +37,7 @@ registerLocaleData(en);
     MyOverlayModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },
-    {provide: NZ_MESSAGE_CONFIG, useValue: {nzDuration: 300000}}
+    {provide: NZ_MESSAGE_CONFIG, useValue: {nzDuration: 10000}}
   ],
   bootstrap: [AppComponent],
   entryComponents: [ComponentPortalExample, PortalOutsideComponent, DialogComponentWithSharingData]

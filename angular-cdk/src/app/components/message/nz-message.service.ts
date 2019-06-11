@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/LICENSE
  */
 
-import { Overlay } from '@angular/cdk/overlay';
+import {Overlay, OverlayConfig} from '@angular/cdk/overlay';
 import {
   ApplicationRef,
   ComponentFactoryResolver,
@@ -20,6 +20,7 @@ import {
 import { NzMessageConfig } from './nz-message-config';
 import { NzMessageContainerComponent } from './nz-message-container.component';
 import { NzMessageData, NzMessageDataFilled, NzMessageDataOptions } from './nz-message.definitions';
+import {ComponentPortal} from '@angular/cdk/portal';
 
 let globalCounter = 0;
 
@@ -75,12 +76,17 @@ export class NzMessageBaseService<
   // NOTE: we never clean up the container component and it's overlay resources, if we should, we need to do it by our own codes.
   private createContainer(): ContainerClass {
     const factory = this.cfr.resolveComponentFactory(this.containerClass);
-    const componentRef = factory.create(this.injector); // Use root injector
-    componentRef.changeDetectorRef.detectChanges(); // Immediately change detection to avoid multi-checking error
-    this.appRef.attachView(componentRef.hostView); // Load view into app root
-    const overlayPane = this.overlay.create().overlayElement;
+    //const componentRef = factory.create(this.injector); // Use root injector
+    //componentRef.changeDetectorRef.detectChanges(); // Immediately change detection to avoid multi-checking error
+   // this.appRef.attachView(componentRef.hostView); // Load view into app root
+    const containerPortal = new ComponentPortal(this.containerClass);
+    const overlayRef = this.overlay.create();
+    const componentRef = overlayRef.attach(containerPortal);
+    const overlayPane = overlayRef.overlayElement;
     overlayPane.style.zIndex = '1010'; // Patching: assign the same zIndex of ant-message to it's parent overlay panel, to the ant-message's zindex work.
-    overlayPane.appendChild((componentRef.hostView as EmbeddedViewRef<{}>).rootNodes[0] as HTMLElement);
+    /*const tmp =  (componentRef.hostView as EmbeddedViewRef<{}>);
+    const tmp2 = tmp.rootNodes[0] as HTMLElement;
+    overlayPane.appendChild(tmp2);*/
 
     return componentRef.instance;
   }

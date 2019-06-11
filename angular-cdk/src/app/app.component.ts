@@ -7,9 +7,9 @@ import { NzMessageService } from './components/message';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
-  constructor() {};
+  constructor(private message: NzMessageService) {};
   ngAfterViewInit(): void {
-    //this.message.success('qiusheng');
+    this.message.success('qiusheng');
   }
 
 }
