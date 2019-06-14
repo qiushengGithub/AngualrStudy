@@ -1,3 +1,18 @@
-<p>
-  my-message works!
-</p>
+<div class="ant-message-notice"
+     [@moveUpMotion]="message.state">
+
+  <div class="ant-message-notice-content">
+    <div class="ant-message-custom-content" [ngClass]="'ant-message-' + message.type">
+      <ng-container [ngSwitch]="message.type">
+        <i *ngSwitchCase="'success'" nz-icon type="check-circle"></i>
+        <i *ngSwitchCase="'info'"  nz-icon type="info-circle"></i>
+        <i *ngSwitchCase="'warning'" nz-icon type="exclamation-circle"></i>
+        <i *ngSwitchCase="'error'" nz-icon type="close-circle"></i>
+        <i *ngSwitchCase="'loading'" nz-icon type="loading"></i>
+      </ng-container>
+      <ng-container *nzStringTemplateOutlet="message.content">
+        <span [innerHTML]="message.content"></span>
+      </ng-container>
+    </div>
+  </div>
+</div>

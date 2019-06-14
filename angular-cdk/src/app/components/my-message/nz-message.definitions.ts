@@ -9,7 +9,7 @@
 import { TemplateRef } from '@angular/core';
 import { Subject } from 'rxjs';
 
-export type NzMessageType = 'success' | 'info' | 'warning' | 'error' | 'loading';
+export type MyMessageType = 'success' | 'info' | 'warning' | 'error' | 'loading';
 
 export interface MyMessageDataOptions {
   nzDuration?: number;
@@ -21,7 +21,7 @@ export interface MyMessageDataOptions {
  * Message data for terminal users.
  */
 export interface MyMessageData {
-  type?: NzMessageType | string;
+  type?: MyMessageType | string;
   content?: string | TemplateRef<void>;
 }
 

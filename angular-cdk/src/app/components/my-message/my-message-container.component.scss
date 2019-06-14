@@ -1,4 +1,5 @@
 .myMessage-container{
-  left:50%;
-  transform: translateX(-50%);
+  position: fixed;
+  text-align: center;
+  width: 100%;
 }
