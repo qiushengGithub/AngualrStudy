@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {PortalModule} from '@angular/cdk/portal';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
   CdkPortalOverviewExample, ComponentPortalExample, DialogComponentWithSharingData, PortalOutsideComponent,
@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import {MyMessageModule} from './components/my-message/my-message.module';
+import { NgxEchartsModule } from 'ngx-echarts';
+import {EchartsComponent} from './components/echarts/echarts.component';
+
 
 registerLocaleData(en);
 
@@ -24,7 +27,8 @@ registerLocaleData(en);
     CdkPortalOverviewExample,
     ComponentPortalExample,
     PortalOutsideComponent,
-    DialogComponentWithSharingData
+    DialogComponentWithSharingData,
+    EchartsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     PortalModule,
     MyOverlayModule,
-    MyMessageModule
+    MyMessageModule,
+    AppRoutingModule,
+    NgxEchartsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US },
     {provide: NZ_MESSAGE_CONFIG, useValue: {nzDuration: 100000}}
