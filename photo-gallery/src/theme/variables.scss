@@ -75,3 +75,65 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+.ion-color-favorite {
+  --ion-color-base: #69bb7b;
+  --ion-color-base-rgb: 105, 187, 123;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #5ca56c;
+  --ion-color-tint: #78c288;
+}
+
+.ion-color-twitter {
+  --ion-color-base: #1da1f4;
+  --ion-color-base-rgb: 29, 161, 244;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #1a8ed7;
+  --ion-color-tint: #34aaf5;
+}
+
+.ion-color-google {
+  --ion-color-base: #dc4a38;
+  --ion-color-base-rgb: 220, 74, 56;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #c24131;
+  --ion-color-tint: #e05c4c;
+}
+
+.ion-color-vimeo {
+  --ion-color-base: #23b6ea;
+  --ion-color-base-rgb: 35, 182, 234;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #1fa0ce;
+  --ion-color-tint: #39bdec;
+}
+
+.ion-color-facebook {
+  --ion-color-base: #3b5998;
+  --ion-color-base-rgb: 59, 89, 152;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #344e86;
+  --ion-color-tint: #4f6aa2;
+}
+
+.md {
+  // Use the primary color as the background for the toolbar
+  --ion-toolbar-background: var(--ion-color-primary);
+
+  // Change the color of the toolbar components
+  --ion-toolbar-color: #fff;
+
+  // Change the color of the activated toolbar components
+  --ion-toolbar-color-activated: #fff;
+
+  // Change the color of the unchecked segment buttons
+  --ion-toolbar-color-unchecked: rgba(255, 255, 255, .6);
+
+  // Change the color of the checked segment button
+  --ion-toolbar-color-checked: #fff;
+}
