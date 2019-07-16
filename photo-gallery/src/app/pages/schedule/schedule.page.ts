@@ -4,6 +4,7 @@ import { AlertController, IonList, LoadingController, ModalController, ToastCont
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterComponent} from './schedule-filter/schedule-filter.component';
+import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class SchedulePage implements OnInit {
   shownSessions: any = [];
   groups: any = [];
   confDate: string;
+  base64Image;
 
   constructor(
       public alertCtrl: AlertController,
@@ -29,7 +31,8 @@ export class SchedulePage implements OnInit {
       public modalCtrl: ModalController,
       public router: Router,
       public toastCtrl: ToastController,
-      public user: UserData
+      public user: UserData,
+      private camera: Camera
   ) { }
 
   ngOnInit() {
@@ -119,13 +122,34 @@ export class SchedulePage implements OnInit {
   }
 
   async openSocial(network: string, fab: HTMLIonFabElement) {
-    const loading = await this.loadingCtrl.create({
+ /*   const loading = await this.loadingCtrl.create({
       message: `Posting to ${network}`,
       duration: (Math.random() * 1000) + 500
     });
     await loading.present();
     await loading.onWillDismiss();
-    fab.close();
-  }
 
+    fab.close();*/
+ window.open('www.baidu.com','_blank');
+  }
+  showCamera(){
+    const options: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true,
+      encodingType: this.camera.EncodingType.JPEG,
+      targetWidth: 100,
+      targetHeight: 200,
+      saveToPhotoAlbum: true
+    };
+
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      // Handle error
+    });
+  }
 }

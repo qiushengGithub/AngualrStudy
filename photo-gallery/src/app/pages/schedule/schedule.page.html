@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar >
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -75,4 +75,6 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
+  <ion-button color="primary" (click)="showCamera()">Show Camera</ion-button>
+  <img [attr.src]="base64Image" alt="">
 </ion-content>

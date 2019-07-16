@@ -27,4 +27,7 @@ export class AppComponent implements OnInit {
     console.log(this.count);
     console.log(1111);
   }
+  showName(obj) {
+    console.log(obj);
+  }
 }

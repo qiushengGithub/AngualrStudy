@@ -23,4 +23,9 @@
 
 这是学习 onPush <br>
 <button (click)="changeCount()">增加count</button> <br>
-<app-parent [count]="count"></app-parent>
+<app-parent [count]="count"></app-parent><br>
+
+这是学习模板引用变量作用域 <br>
+<div *ngFor="let test of temps;let i = index" #mytest  [attr.name]="test">
+  <button (click)="showName(mytest)">show</button>
+</div>
